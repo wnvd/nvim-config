@@ -1,7 +1,7 @@
 -- vim.cmd([[colorscheme onedarkest]])
 
 
-local colorscheme = "slate"
+local colorscheme = "carbonfox"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
