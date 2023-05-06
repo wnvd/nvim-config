@@ -14,4 +14,10 @@ require("packer").startup(function(use)
     use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
     -- tree-sitter playground
     use ('nvim-treesitter/playground')
+    -- harpoon
+    use ('ThePrimeagen/harpoon')
+    -- undotree 
+    use ('mbbill/undotree')
+    -- fugitive (havent thought of using it yet)
+    use ('tpope/vim-fugitive')
 end)
