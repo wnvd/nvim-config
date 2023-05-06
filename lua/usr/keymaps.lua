@@ -14,7 +14,11 @@ vim.g.mapleader = ","
 
 -- Normal Mode --
 -- Mapping (,e) to Explorer
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+-- keymap("n", "<leader>e", ":Lex 30<cr>", opts) 
+-- Note: had problems during file cerations in :Lex 
+-- so binding netrw, NO using both gives an error
+-- think of "fe" as file explorer
+vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
 
 -- Better Window Navigation
 --keymap("n", "<C-h>", "<C-w>h", opts)

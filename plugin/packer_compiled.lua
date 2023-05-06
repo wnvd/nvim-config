@@ -79,10 +79,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\naveed\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "C:\\Users\\naveed\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "C:\\Users\\naveed\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "C:\\Users\\naveed\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
