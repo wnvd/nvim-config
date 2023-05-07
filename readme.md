@@ -55,6 +55,11 @@ It is a parsing tool and library.
 ### tree-playground
 It give you access to parser, if you wanna do something with it.
 
+### lsp navigation
+`<C-n>` for next in lsp buffer.
+`<C-p>` for previous in lsp buffer.
+`<C-y>` to confirm.
+
 ### harpoon
 It gives you quick access to files added to harpoon list
 leader + a to add the current file.
