@@ -11,10 +11,7 @@ require("packer").startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     -- auto pairs ---
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    use {"windwp/nvim-autopairs"}
     -- tree-sitter 
     use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
     -- tree-sitter playground

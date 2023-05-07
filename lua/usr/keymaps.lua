@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- (,) as global leader
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- OLD
 -- Maping Horizontal Explorer to (,e)
