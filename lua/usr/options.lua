@@ -4,15 +4,31 @@ local options = {
 	termguicolors = true,
 
 	expandtab = true,
+    softtabstop = 4,
 	shiftwidth = 4,
 	tabstop = 4,
 
-	number = true,
+    smartindent = true,
+
     cursorline = true,
+
+	number = true,
 	relativenumber = true,
 	guifont = "monospace:h17",
 	-- get rid of all multiple status lines
     laststatus = 3,
+
+    -- search and highlight
+    hlsearch = false,
+    incsearch = true,
+
+    scrolloff = 8,
+    signcolumn = "yes",
+
+    -- faster update
+    updatetime = 50,
+
+    colorcolumn = "80",
 
 }
 
@@ -22,3 +38,4 @@ end
 
 -- used with laststatus = 3
 vim.cmd[["highlight WinSeparator guibg=None"]]
+
