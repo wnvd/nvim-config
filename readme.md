@@ -29,7 +29,8 @@ Setting you Leader Key <br>
 
 ### Navigate buffers
 `<C-n>` for next.<br>
-`<C-p>` for previous.
+`<C-p>` for previous.<br>
+`<C-y>` to confirm
 
 ### Indent text in visual mode
 '>' to go right.<br>
