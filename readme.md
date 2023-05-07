@@ -75,4 +75,5 @@ Not setup yet.<br>
 Not set up yet.
 
 ### zen mode
-:ZenMode
+In Normal Mode
+`:ZenMode`
