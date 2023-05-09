@@ -2,7 +2,9 @@ require("packer").startup(function(use)
     -- this is here so packer manages itself
     use ("wbthomason/packer.nvim")
     -- colorschemes --
---    use "lunarvim/colorschemes"
+    -- use "lunarvim/colorschemes"
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+
     use "EdenEast/nightfox.nvim"
     -- telescope --
     use {
@@ -58,6 +60,13 @@ require("packer").startup(function(use)
             {'L3MON4D3/LuaSnip'},     -- Required
             {'rafamadriz/friendly-snippets'},
         }
+    }
+    -- Git signs --
+    use {
+        'lewis6991/gitsigns.nvim', -- do not use on nightly or dev build
+        config = function()
+            require('gitsigns').setup()
+        end
     }
  
     -- Zen mode
