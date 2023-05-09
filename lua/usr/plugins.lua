@@ -16,7 +16,13 @@ require("packer").startup(function(use)
     use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
     -- tree-sitter playground
     use ('nvim-treesitter/playground')
-
+    -- comments --
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     -- harpoon
     use ('ThePrimeagen/harpoon')
 
