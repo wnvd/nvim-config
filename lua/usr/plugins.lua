@@ -27,7 +27,10 @@ require("packer").startup(function(use)
     }
     -- harpoon
     use ('ThePrimeagen/harpoon')
-
+    --- toggle term ---
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end}
     -- undotree 
     use ('mbbill/undotree')
     -- fugitive (havent thought of using it yet)

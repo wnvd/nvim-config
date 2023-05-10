@@ -1,5 +1,5 @@
 local options = {
-	
+
     fileencoding = "utf-8",
 	termguicolors = true,
 
@@ -34,7 +34,7 @@ local options = {
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
-end 
+end
 
 -- used with laststatus = 3
 vim.cmd[["highlight WinSeparator guibg=None"]]
