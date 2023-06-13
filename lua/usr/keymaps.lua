@@ -5,7 +5,7 @@ local term_opts = { silent = true }
 -- Shortening function name 
 local keymap = vim.api.nvim_set_keymap
 
--- (,) as global leader
+-- (" ") as global leader
 vim.g.mapleader = " "
 
 -- OLD
@@ -17,8 +17,8 @@ vim.g.mapleader = " "
 -- keymap("n", "<leader>e", ":Lex 30<cr>", opts) 
 -- Note: had problems during file cerations in :Lex 
 -- so binding netrw, NO using both gives an error
--- think of "fe" as file explorer
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+-- think of "fe" as file explorer (started to use telescope file browser)
+-- vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
 
 -- Better Window Navigation
 --keymap("n", "<C-h>", "<C-w>h", opts)

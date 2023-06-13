@@ -1,5 +1,11 @@
 local options = {
 
+    -- Took from tjdevries
+    -- Cool floating window popup menu for completion on command line
+    pumblend = 17,
+    -- wildmode = "longest:full", -- this one disables tab for some reason
+    wildoptions = "pum",
+
     fileencoding = "utf-8",
 	termguicolors = true,
 
@@ -19,16 +25,18 @@ local options = {
     laststatus = 3,
 
     -- search and highlight
-    hlsearch = false,
+    hlsearch = true,
     incsearch = true,
 
-    scrolloff = 8,
+    scrolloff = 10,
     signcolumn = "yes",
 
     -- faster update
     updatetime = 50,
 
-    colorcolumn = "80",
+    colorcolumn = "90",
+
+    showmatch = true,
 
 }
 
