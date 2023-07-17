@@ -41,10 +41,22 @@ keymap("n", "<S-h>", ":bnprevious<CR>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Move text up and down
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "p", '"_dp', opts)
+-- Move text up and down (cris@machine) 
+-- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+-- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+-- keymap("v", "p", '"_dp', opts)
+-- Move text (theprimeagen)
+keymap("v", "<A-k>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-j>", ":m '<-2<CR>gv=gv", opts)
+
+-- cursor stays at the same postion when moving 
+-- page half up and down.
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- search terms stay in middle of screen
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- Visual Block --
 -- Move text up and down

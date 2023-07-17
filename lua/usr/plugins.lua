@@ -2,12 +2,9 @@ require("packer").startup(function(use)
     -- this is here so packer manages itself
     use("wbthomason/packer.nvim")
     -- colorschemes --
-    -- use ({"lunarvim/colorschemes", as = "lunarvim"})
     use({ 'rose-pine/neovim', as = 'rose-pine' })
     use({ "ellisonleao/gruvbox.nvim", as = "gruvbox" })
     use("EdenEast/nightfox.nvim")
-    -- colorscheme transparent
-    -- use({ "xiyaowong/transparent.nvim" })
     -- telescope --
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -50,6 +47,7 @@ require("packer").startup(function(use)
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
+            
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             {

@@ -1,11 +1,7 @@
 local lsp = require('lsp-zero').preset("recommended")
 
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
     'gopls',
---    'sumneko_lua',
-    'rust_analyzer',
 })
 
 --- disabled for now to see default bindings
