@@ -5,6 +5,9 @@ require("packer").startup(function(use)
     use({ 'rose-pine/neovim', as = 'rose-pine' })
     use({ "ellisonleao/gruvbox.nvim", as = "gruvbox" })
     use("EdenEast/nightfox.nvim")
+    --- colorbuddy & gruvbuddy ---
+    -- use("tjdevries/colorbuddy.vim")
+    -- use("tjdevries/gruvbuddy.nvim")
     -- telescope --
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -16,6 +19,16 @@ require("packer").startup(function(use)
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     }
+    -- nvim surround --
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
     -- auto pairs ---
     use { "windwp/nvim-autopairs" }
     -- auto tags ---
@@ -47,7 +60,6 @@ require("packer").startup(function(use)
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
-            
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
             {
