@@ -1,9 +1,9 @@
-require("packer").startup(function(use)
+require('packer').startup(function(use)
     -- this is here so packer manages itself
-    use("wbthomason/packer.nvim")
+    use('wbthomason/packer.nvim')
     -- colorschemes --
     use({ 'rose-pine/neovim', as = 'rose-pine' })
-    use({ "ellisonleao/gruvbox.nvim", as = "gruvbox" })
+    use({ 'ellisonleao/gruvbox.nvim', as = 'gruvbox' })
     use("EdenEast/nightfox.nvim")
     --- colorbuddy & gruvbuddy ---
     -- use("tjdevries/colorbuddy.vim")
@@ -16,23 +16,23 @@ require("packer").startup(function(use)
     }
     -- telescope file browser --
     use {
-        "nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        'nvim-telescope/telescope-file-browser.nvim',
+        requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     }
     -- nvim surround --
     use({
-        "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        'kylechui/nvim-surround',
+        tag = '*', -- Use for stability; omit to use `main` branch for the latest features
         config = function()
-            require("nvim-surround").setup({
+            require('nvim-surround').setup({
                 -- Configuration here, or leave empty to use defaults
             })
         end
     })
     -- auto pairs ---
-    use { "windwp/nvim-autopairs" }
+    use { 'windwp/nvim-autopairs' }
     -- auto tags ---
-    use { "windwp/nvim-ts-autotag" }
+    use { 'windwp/nvim-ts-autotag' }
     -- tree-sitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     -- tree-sitter playground
@@ -47,7 +47,7 @@ require("packer").startup(function(use)
     -- harpoon
     use('ThePrimeagen/harpoon')
     --- toggle term ---
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    use { 'akinsho/toggleterm.nvim', tag = '*', config = function()
         require("toggleterm").setup()
     end }
     -- undotree
@@ -88,11 +88,8 @@ require("packer").startup(function(use)
     use { 'lewis6991/gitsigns.nvim' } -- do not use on nightly or dev build
 
     -- Zen mode
-    use("folke/zen-mode.nvim")
+    use('folke/zen-mode.nvim')
 
-    -- lua line
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+    -- staline --
+    use('tamton-aquib/staline.nvim')
 end)

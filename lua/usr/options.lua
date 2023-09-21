@@ -7,21 +7,21 @@ local options = {
     wildoptions = "pum",
 
     fileencoding = "utf-8",
-	termguicolors = true,
+    termguicolors = true,
 
-	expandtab = true,
+    expandtab = true,
     softtabstop = 4,
-	shiftwidth = 4,
-	tabstop = 4,
+    shiftwidth = 4,
+    tabstop = 4,
 
     smartindent = true,
 
     cursorline = true,
 
-	number = true,
-	relativenumber = true,
-	guifont = "monospace:h17",
-	-- get rid of all multiple status lines
+    number = true,
+    relativenumber = true,
+    guifont = "monospace:h17",
+    -- get rid of all multiple status lines
     laststatus = 3,
 
     -- search and highlight
@@ -34,16 +34,15 @@ local options = {
     -- faster update
     updatetime = 50,
 
-    colorcolumn = "90",
+    -- colorcolumn = "90",
 
     showmatch = true,
 
 }
 
 for k, v in pairs(options) do
-	vim.opt[k] = v
+    vim.opt[k] = v
 end
 
 -- used with laststatus = 3
-vim.cmd[["highlight WinSeparator guibg=None"]]
-
+vim.cmd [["highlight WinSeparator guibg=None"]]

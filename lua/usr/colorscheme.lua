@@ -1,15 +1,7 @@
--- local colorscheme = "carbonfox"
---
--- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
---
--- if not status_ok then
---     vim.notify("colorscheme " .. colorscheme .." not found!")
---     return
--- end
-
 --- Theme Setups ---
 -- ==============================================================
 -- gruvbox setup--
+-- ==============================================================
 require("gruvbox").setup({
     undercurl = true,
     underline = true,
@@ -32,10 +24,11 @@ require("gruvbox").setup({
     overrides = {
     },
     dim_inactive = false,
-    transparent_mode = false,
+    transparent_mode = true,
 })
 -- ===================================================
 -- Rose Pine --
+-- ===================================================
 require('rose-pine').setup({
     --- @usage 'auto'|'main'|'moon'|'dawn'
     variant = 'auto',
@@ -88,6 +81,7 @@ require('rose-pine').setup({
 })
 -- ================================================================
 --  nightfox.nvim
+-- ================================================================
 require('nightfox').setup({
     options = {
         -- Compiled file's destination location
@@ -134,4 +128,4 @@ require('nightfox').setup({
 
 -- ================================================================
 vim.o.background = "dark"
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme gruvbox")
