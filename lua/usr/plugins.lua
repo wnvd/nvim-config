@@ -33,6 +33,7 @@ require('packer').startup(function(use)
     use { 'windwp/nvim-autopairs' }
     -- auto tags ---
     use { 'windwp/nvim-ts-autotag' }
+    use { 'lukas-reineke/indent-blankline.nvim' }
     -- tree-sitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     -- tree-sitter playground

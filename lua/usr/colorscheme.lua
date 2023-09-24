@@ -1,13 +1,15 @@
 --- Theme Setups ---
--- ==============================================================
+-- =========================
 -- gruvbox setup--
--- ==============================================================
-require("gruvbox").setup({
+-- =========================
+require('gruvbox').setup({
+    terminal_colors = true,
     undercurl = true,
     underline = true,
     bold = false,
     italic = {
         strings = false,
+        emphasis = true,
         comments = false,
         operators = false,
         folds = false,
@@ -26,9 +28,9 @@ require("gruvbox").setup({
     dim_inactive = false,
     transparent_mode = true,
 })
--- ===================================================
+-- =======================
 -- Rose Pine --
--- ===================================================
+-- =======================
 require('rose-pine').setup({
     --- @usage 'auto'|'main'|'moon'|'dawn'
     variant = 'auto',
@@ -79,9 +81,9 @@ require('rose-pine').setup({
         MatchParen = { fg = '#C70A80', bg = 'muted' },
     }
 })
--- ================================================================
+-- =====================
 --  nightfox.nvim
--- ================================================================
+-- =====================
 require('nightfox').setup({
     options = {
         -- Compiled file's destination location
@@ -126,6 +128,6 @@ require('nightfox').setup({
     groups = {},
 })
 
--- ================================================================
+-- =======================
 vim.o.background = "dark"
 vim.cmd("colorscheme gruvbox")

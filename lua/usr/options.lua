@@ -1,48 +1,38 @@
-local options = {
+-- tjdevries
+-- Cool floating window popup menu for completion on command line
+vim.o.pumblend = 17
+-- wildmode = "longest:full" -- this one disables tab for some reason
+vim.o.wildoptions = 'pum'
+vim.o.encoding = 'utf-8'     -- the encoding displayed
+vim.o.fileencoding = 'utf-8' -- the encoding written in file
+vim.o.termguicolors = true   -- true color support
 
-    -- Took from tjdevries
-    -- Cool floating window popup menu for completion on command line
-    pumblend = 17,
-    -- wildmode = "longest:full", -- this one disables tab for some reason
-    wildoptions = "pum",
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.smartindent = true
+vim.o.cursorline = true -- highlight bar on cursor
+vim.wo.number = true
+vim.o.relativenumber = true
+vim.o.guifont = "monospace:h17"
 
-    fileencoding = "utf-8",
-    termguicolors = true,
+vim.o.laststatus = 3     -- one universal status line
+vim.o.showmode = true    -- no need to see things like 'INSERT', 'VISUAL', 'NORMAL'
+vim.o.breakindent = true -- enable break indent
 
-    expandtab = true,
-    softtabstop = 4,
-    shiftwidth = 4,
-    tabstop = 4,
+-- incremental search and highlight
+vim.o.hlsearch = true
+vim.o.incsearch = true
 
-    smartindent = true,
+vim.o.scrolloff = 10
+vim.wo.signcolumn = 'yes'
+vim.o.updatetime = 300 -- faster compilation
+vim.o.timeoutlen = 500 -- by default timeoutlen is 1000ms
+--vim.o.colorcolumn = "80"
+vim.o.showmatch = true
+vim.o.clipboard = 'unnamedplus'                 -- copy paste between vim and everything else
 
-    cursorline = true,
+vim.o.completeopt = "menuone", "noselect"       -- set completeopt to have better completion exprience
 
-    number = true,
-    relativenumber = true,
-    guifont = "monospace:h17",
-    -- get rid of all multiple status lines
-    laststatus = 3,
-
-    -- search and highlight
-    hlsearch = true,
-    incsearch = true,
-
-    scrolloff = 10,
-    signcolumn = "yes",
-
-    -- faster update
-    updatetime = 50,
-
-    -- colorcolumn = "90",
-
-    showmatch = true,
-
-}
-
-for k, v in pairs(options) do
-    vim.opt[k] = v
-end
-
--- used with laststatus = 3
-vim.cmd [["highlight WinSeparator guibg=None"]]
+vim.cmd [["highlight WinSeparator guibg=None"]] -- used with laststatus = 3 setting

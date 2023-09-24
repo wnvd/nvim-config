@@ -1,8 +1,8 @@
 local gruvbox = {
-    i = "#84a598",
+    i = "#98971a",
     n = "#a89985",
-    c = "#8fbf7f",
-    v = "#fc802d",
+    c = "#fe8019",
+    v = "#fabd2f",
 }
 require("staline").setup {
     sections = {
