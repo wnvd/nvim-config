@@ -1,26 +1,7 @@
-local lsp = require('lsp-zero').preset("recommended")
+local lsp_zero = require('lsp-zero')
 
-lsp.ensure_installed({
-    'gopls',
-})
-
---- disabled for now to see default bindings
-local cmp = require('cmp')
-local cmp_select = { behaviour = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-----------------------
--- some config here --
-----------------------
-
--- Remaps only when inside buffer (which is file you are editing)
-lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
+lsp_zero.on_attach(function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
     -- "K": displays hover information about the symbol under the cursor
     -- in a floating window.
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -55,7 +36,32 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = { 'lua_ls', 'tsserver', 'gopls' },
+    handlers = {
+        lsp_zero.default_setup,
+        lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+        end,
+    }
+})
 
-lsp.setup()
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+cmp.setup({
+    sources = {
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+    },
+    formatting = lsp_zero.cmp_format(),
+    mapping = cmp.mapping.preset.insert({
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+    }),
+})

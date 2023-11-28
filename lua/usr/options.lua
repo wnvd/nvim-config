@@ -27,12 +27,23 @@ vim.o.incsearch = true
 
 vim.o.scrolloff = 10
 vim.wo.signcolumn = 'yes'
-vim.o.updatetime = 300 -- faster compilation
-vim.o.timeoutlen = 500 -- by default timeoutlen is 1000ms
---vim.o.colorcolumn = "80"
+vim.o.updatetime = 300                          -- faster compilation
+vim.o.timeoutlen = 500                          -- by default timeoutlen is 1000ms
+vim.o.colorcolumn = "60"                        -- colour column coordiantes
 vim.o.showmatch = true
 vim.o.clipboard = 'unnamedplus'                 -- copy paste between vim and everything else
 
 vim.o.completeopt = "menuone", "noselect"       -- set completeopt to have better completion exprience
+
+-- enable vim spell checker for '.gitcommit', '.markdown', '.text'
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = vim.api.nvim_create_augroup("edit_text", { clear = true }),
+	pattern = { "gitcommit", "markdown", "txt" },
+	desc = "Enable spell checking and text wrapping for certain filetypes",
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
+	end,
+})
 
 vim.cmd [["highlight WinSeparator guibg=None"]] -- used with laststatus = 3 setting

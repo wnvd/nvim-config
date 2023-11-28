@@ -4,6 +4,14 @@ local gruvbox = {
     c = "#fe8019",
     v = "#fabd2f",
 }
+
+local rosepine = {
+    i = "#A54242",
+    n = "#007F00",
+    c = "#005FAF",
+    v = "#A54242",
+}
+
 require("staline").setup {
     sections = {
         left = { '  ', 'mode', ' ', 'branch', ' ', 'lsp' },

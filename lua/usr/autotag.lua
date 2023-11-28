@@ -5,7 +5,7 @@ require('nvim-ts-autotag').setup({
         'xml',
         'php',
         'markdown',
-        'astro', 'glimmer', 'handlebars', 'hbs', 'pug'
+        'astro', 'glimmer', 'handlebars', 'hbs'
     },
     skip_tags = {
         'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'slot',

@@ -1,14 +1,12 @@
 -- You don't need to set any of these options.
 -- IMPORTANT!: this is only a showcase of how you can set default options!
-local search = "  "
-local carret = "  "
-local folder = "  "
+local folder = " "
 require("telescope").setup {
-    defaults = {
-        prompt_prefix = "  " .. search .. "  ",
-        selection_caret = carret,
-        entry_prefix = "   ",
-    },
+    -- defaults = {
+    --     prompt_prefix = "  " .. search .. "  ",
+    --     selection_caret = carret,
+    --     entry_prefix = "   ",
+    -- },
     extensions = {
         file_browser = {
             theme = "dropdown", -- dropdown, ivy

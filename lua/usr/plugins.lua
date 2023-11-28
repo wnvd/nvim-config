@@ -5,6 +5,7 @@ require('packer').startup(function(use)
     use({ 'rose-pine/neovim', as = 'rose-pine' })
     use({ 'ellisonleao/gruvbox.nvim', as = 'gruvbox' })
     use("EdenEast/nightfox.nvim")
+    use 'Mofiqul/vscode.nvim'
     --- colorbuddy & gruvbuddy ---
     -- use("tjdevries/colorbuddy.vim")
     -- use("tjdevries/gruvbuddy.nvim")
@@ -23,28 +24,22 @@ require('packer').startup(function(use)
     use({
         'kylechui/nvim-surround',
         tag = '*', -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require('nvim-surround').setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
     })
     -- auto pairs ---
     use { 'windwp/nvim-autopairs' }
     -- auto tags ---
     use { 'windwp/nvim-ts-autotag' }
-    use { 'lukas-reineke/indent-blankline.nvim' }
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        -- you didn't like the changes in v3
+        commit = '9637670896',
+    }
     -- tree-sitter
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     -- tree-sitter playground
     use('nvim-treesitter/playground')
     -- comments --
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
+    use('numToStr/Comment.nvim')
     -- harpoon
     use('ThePrimeagen/harpoon')
     --- toggle term ---
@@ -59,38 +54,41 @@ require('packer').startup(function(use)
     -- LSP Setup --
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         requires = {
+            --- Uncomment these if you want to manage LSP servers from neovim
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
+            { 'neovim/nvim-lspconfig' },
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-nvim-lua' }, -- Required
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' }, -- Required
-            { 'rafamadriz/friendly-snippets' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
     -- Git signs --
     use { 'lewis6991/gitsigns.nvim' } -- do not use on nightly or dev build
-
-    -- Zen mode
+    -- nvim-Colorizer --
+    use('norcalli/nvim-colorizer.lua')
+    -- Zen mode --
     use('folke/zen-mode.nvim')
-
+    -- fidget --
+    use { 'j-hui/fidget.nvim', config = function()
+        require('fidget').setup({})
+    end }
     -- staline --
     use('tamton-aquib/staline.nvim')
 end)
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = vim.api.nvim_create_augroup('Packer', {
+    clear
+    = true
+})
+vim.api.nvim_create_autocmd('BufWritePost', {
+    command = 'source <afile> | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
+})

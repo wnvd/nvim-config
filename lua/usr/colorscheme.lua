@@ -10,7 +10,7 @@ require('gruvbox').setup({
     italic = {
         strings = false,
         emphasis = true,
-        comments = false,
+        comments = true,
         operators = false,
         folds = false,
     },
@@ -35,7 +35,7 @@ require('rose-pine').setup({
     --- @usage 'auto'|'main'|'moon'|'dawn'
     variant = 'auto',
     --- @usage 'main'|'moon'|'dawn'
-    dark_variant = 'moon',
+    dark_variant = 'main',
     bold_vert_split = false,
     dim_nc_background = false,
     disable_background = false,
@@ -128,6 +128,12 @@ require('nightfox').setup({
     groups = {},
 })
 
+-- =======================
+local c = require("vscode.colors").get_colors()
+require("vscode").setup({
+    transparent = true,
+    italic_comments = true,
+})
 -- =======================
 vim.o.background = "dark"
 vim.cmd("colorscheme gruvbox")
